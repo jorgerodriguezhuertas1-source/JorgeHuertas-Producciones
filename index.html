@@ -261,7 +261,7 @@ section{
 .section-description{
     color:#999;
     max-width:650px;
-    margin-bottom:50px;
+    margin-bottom:40px;
 }
 
 
@@ -314,40 +314,98 @@ section{
 
 
 /* =========================
-   SERVICES
+   SERVICIOS INTERACTIVOS (TABS / SLIDE)
 ========================= */
 
-.services-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+.services-interactive{
+    background:#080808;
 }
 
-.service{
-    padding:35px;
-    border:1px solid #222;
-    border-radius:18px;
-    background:#0d0d0d;
-    transition:.3s;
+/* Barra de pestañas */
+.service-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 20px;
 }
 
-.service:hover{
-    border-color:#383838;
+.tab-btn {
+    background: #141414;
+    border: 1px solid #252525;
+    color: #999;
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
 }
 
-.service-icon{
-    font-size:32px;
-    margin-bottom:20px;
+.tab-btn:hover {
+    color: #fff;
+    border-color: #444;
 }
 
-.service h3{
-    font-size:20px;
-    margin-bottom:10px;
+.tab-btn.active {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
 }
 
-.service p{
-    color:#888;
-    font-size:14px;
+/* Contenido de la pestaña activa */
+.service-display-box {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 24px;
+    padding: 40px;
+    align-items: center;
+}
+
+.service-pane {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.service-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.service-pane h3 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.service-pane p {
+    color: #aaa;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.service-media {
+    width: 100%;
+    height: 300px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid #222;
+}
+
+.service-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 
@@ -402,7 +460,7 @@ section{
 
 
 /* =========================
-   MOMENTOS REALES (TIKTOK REELS)
+   MOMENTOS REALES (TIKTOK)
 ========================= */
 
 .reels-section{
@@ -433,7 +491,7 @@ section{
 .reel-video-container {
     position: relative;
     width: 100%;
-    padding-top: 177.78%; /* Proporción 9:16 tipo Reel */
+    padding-top: 177.78%;
     background: #000;
 }
 
@@ -614,9 +672,10 @@ footer{
 
 @media(max-width:900px){
     .about-grid,
-    .reels-grid{
+    .reels-grid,
+    .service-display-box{
         grid-template-columns:1fr;
-        gap:35px;
+        gap:25px;
     }
 }
 
@@ -650,8 +709,7 @@ footer{
     }
 
     .event-grid,
-    .services-grid,
-    .pack-grid{
+    .reels-grid{
         grid-template-columns:1fr;
     }
 
@@ -737,20 +795,77 @@ JORGE HUERTAS
 </section>
 
 
-<!-- SERVICIOS -->
-<section id="servicios">
+<!-- SERVICIOS INTERACTIVOS (TABS) -->
+<section class="services-interactive" id="servicios">
 <div class="container">
 <div class="section-label">02 / Servicios</div>
 <h2 class="section-title">Todo lo que tu evento necesita.</h2>
-<p class="section-description">Puedes contratar un servicio especializado o integrar una solución completa de producción técnica y artística.</p>
-<div class="services-grid">
-<div class="service"><div class="service-icon">🎧</div><h3>DJ Profesional</h3><p>Musicalización y lectura de pista adaptada al público de eventos corporativos y bodas selectas.</p></div>
-<div class="service"><div class="service-icon">🔊</div><h3>Sonido</h3><p>Sistemas de audio profesional de alta fidelidad calibrados para cada espacio y aforo.</p></div>
-<div class="service"><div class="service-icon">💡</div><h3>Iluminación</h3><p>Iluminación arquitectónica, ambiental y robótica para transformar y realzar el espacio.</p></div>
-<div class="service"><div class="service-icon">🍸</div><h3>Barman & Coctelería</h3><p>Barra profesional y coctelería de autor para consentir a tus invitados.</p></div>
-<div class="service"><div class="service-icon">🎤</div><h3>Animación</h3><p>Conducción profesional y elegante con la energía exacta para cada momento.</p></div>
-<div class="service"><div class="service-icon">🎉</div><h3>Entretenimiento</h3><p>Alternativas exclusivas para complementar y dinamizar tu celebración.</p></div>
+<p class="section-description">Haz clic en cada servicio para explorar nuestra propuesta especializada.</p>
+
+<!-- Pestañas de Navegación -->
+<div class="service-tabs">
+    <button class="tab-btn active" onclick="openService(event, 'dj')">🎧 DJ Profesional</button>
+    <button class="tab-btn" onclick="openService(event, 'sonido')">🔊 Sonido</button>
+    <button class="tab-btn" onclick="openService(event, 'iluminacion')">💡 Iluminación</button>
+    <button class="tab-btn" onclick="openService(event, 'barman')">🍸 Barman & Coctelería</button>
+    <button class="tab-btn" onclick="openService(event, 'animacion')">🎤 Animación</button>
+    <button class="tab-btn" onclick="openService(event, 'entretenimiento')">🎉 Entretenimiento</button>
 </div>
+
+<!-- Contenedor Visual Interactivo -->
+<div class="service-display-box">
+
+    <!-- DJ Profesional -->
+    <div id="dj" class="service-pane active">
+        <h3>DJ Profesional</h3>
+        <p>Musicalización y lectura de pista adaptada con precisión al público de eventos corporativos y bodas selectas. Creamos la atmósfera perfecta para cada momento de la celebración.</p>
+        <a class="btn btn-primary" href="https://wa.me/51953432848?text=Hola,%20deseo%20cotizar%20el%20servicio%20de%20DJ%20Profesional">Cotizar este servicio</a>
+    </div>
+
+    <!-- Sonido -->
+    <div id="sonido" class="service-pane">
+        <h3>Sonido de Alta Fidelidad</h3>
+        <p>Sistemas de audio profesional calibrados rigurosamente para cada espacio, garantizando una cobertura acústica impecable y sin saturaciones tanto en voz como en música.</p>
+        <a class="btn btn-primary" href="https://wa.me/51953432848?text=Hola,%20deseo%20cotizar%20el%20servicio%20de%20Sonido">Cotizar este servicio</a>
+    </div>
+
+    <!-- Iluminación -->
+    <div id="iluminacion" class="service-pane">
+        <h3>Iluminación Arquitectónica & Robótica</h3>
+        <p>Diseño lumínico ambiental, robótica y efectos visuales sincronizados para transformar y realzar la elegancia del espacio de tu evento.</p>
+        <a class="btn btn-primary" href="https://wa.me/51953432848?text=Hola,%20deseo%20cotizar%20el%20servicio%20de%20Iluminación">Cotizar este servicio</a>
+    </div>
+
+    <!-- Barman -->
+    <div id="barman" class="service-pane">
+        <h3>Barman & Coctelería Premium</h3>
+        <p>Barra profesional atendida por expertos, coctelería de autor clásica y moderna para consentir a tus invitados con un servicio de primer nivel.</p>
+        <a class="btn btn-primary" href="https://wa.me/51953432848?text=Hola,%20deseo%20cotizar%20el%20servicio%20de%20Barman%20y%20Coctelería">Cotizar este servicio</a>
+    </div>
+
+    <!-- Animación -->
+    <div id="animacion" class="service-pane">
+        <h3>Animación & Conducción</h3>
+        <p>Conducción elegante, dinámica y profesional con la energía justa para mantener el entusiasmo y guiar los tiempos clave de tu celebración.</p>
+        <a class="btn btn-primary" href="https://wa.me/51953432848?text=Hola,%20deseo%20cotizar%20el%20servicio%20de%20Animación">Cotizar este servicio</a>
+    </div>
+
+    <!-- Entretenimiento -->
+    <div id="entretenimiento" class="service-pane">
+        <h3>Entretenimiento Especializado</h3>
+        <p>Alternativas exclusivas y sorpresas diseñadas para complementar, dynamizar y dejar una huella inolvidable en tus invitados.</p>
+        <a class="btn btn-primary" href="https://wa.me/51953432848?text=Hola,%20deseo%20cotizar%20el%20servicio%20de%20Entretenimiento">Cotizar este servicio</a>
+    </div>
+
+    <!-- Video Dinámico de Apoyo en la Derecha -->
+    <div class="service-media">
+        <video autoplay muted loop playsinline>
+            <source src="imagenes/13175452_1920_1080_25fps.mp4" type="video/mp4">
+        </video>
+    </div>
+
+</div>
+
 </div>
 </section>
 
@@ -815,13 +930,9 @@ JORGE HUERTAS
 <p class="section-description">Explora nuestros videos reales en TikTok y descubre la energía que llevamos a cada celebración.</p>
 
 <div class="reels-grid">
-
-    <!-- Reel 1 -->
     <div class="reel-card">
         <div class="reel-video-container">
-            <video autoplay muted loop playsinline>
-                <source src="imagenes/13175452_1920_1080_25fps.mp4" type="video/mp4">
-            </video>
+            <video autoplay muted loop playsinline><source src="imagenes/13175452_1920_1080_25fps.mp4" type="video/mp4"></video>
         </div>
         <div class="reel-info">
             <h3>Matrimonios & Bodas</h3>
@@ -830,12 +941,9 @@ JORGE HUERTAS
         </div>
     </div>
 
-    <!-- Reel 2 -->
     <div class="reel-card">
         <div class="reel-video-container">
-            <video autoplay muted loop playsinline>
-                <source src="imagenes/13175452_1920_1080_25fps.mp4" type="video/mp4">
-            </video>
+            <video autoplay muted loop playsinline><source src="imagenes/13175452_1920_1080_25fps.mp4" type="video/mp4"></video>
         </div>
         <div class="reel-info">
             <h3>Eventos Corporativos</h3>
@@ -844,12 +952,9 @@ JORGE HUERTAS
         </div>
     </div>
 
-    <!-- Reel 3 -->
     <div class="reel-card">
         <div class="reel-video-container">
-            <video autoplay muted loop playsinline>
-                <source src="imagenes/13175452_1920_1080_25fps.mp4" type="video/mp4">
-            </video>
+            <video autoplay muted loop playsinline><source src="imagenes/13175452_1920_1080_25fps.mp4" type="video/mp4"></video>
         </div>
         <div class="reel-info">
             <h3>Discotecas & Fiesta</h3>
@@ -857,7 +962,6 @@ JORGE HUERTAS
             <a href="https://www.tiktok.com/@jhproducciones3" target="_blank" class="reel-btn">Ver en TikTok ↗</a>
         </div>
     </div>
-
 </div>
 </div>
 </section>
@@ -910,6 +1014,27 @@ JORGE HUERTAS
 <a class="whatsapp" href="https://wa.me/51953432848?text=Hola,%20deseo%20información%20sobre%20sus%20servicios" aria-label="WhatsApp">
 💬
 </a>
+
+
+<!-- JAVASCRIPT PARA LAS PESTAÑAS INTERACTIVAS -->
+<script>
+function openService(evt, serviceName) {
+    var i, pane, tablinks;
+    
+    pane = document.getElementsByClassName("service-pane");
+    for (i = 0; i < pane.length; i++) {
+        pane[i].classList.remove("active");
+    }
+    
+    tablinks = document.getElementsByClassName("tab-btn");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+    }
+    
+    document.getElementById(serviceName).classList.add("active");
+    evt.currentTarget.classList.add("active");
+}
+</script>
 
 </body>
 </html>
