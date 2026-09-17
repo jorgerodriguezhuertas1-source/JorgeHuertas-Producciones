@@ -515,7 +515,7 @@ section{
 
 
 /* =========================
-   ABOUT
+   ABOUT (NOSOTROS)
 ========================= */
 
 .about{
@@ -533,29 +533,19 @@ section{
 }
 
 .about-image{
-    min-height:450px;
-
+    width:100%;
+    min-height:480px;
     border-radius:25px;
+    overflow:hidden;
+    border:1px solid #252525;
+    background:#141414;
+}
 
-    background:
-        radial-gradient(
-            circle at 60% 30%,
-            rgba(100,100,255,.3),
-            transparent 30%
-        ),
-        linear-gradient(145deg,#222,#090909);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    color:#666;
-
-    text-align:center;
-
-    padding:30px;
+.about-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
 }
 
 .about-text p{
@@ -784,7 +774,7 @@ footer{
 
     .about-image{
 
-        min-height:300px;
+        min-height:350px;
     }
 
     .footer-content{
@@ -1116,9 +1106,7 @@ Hablemos de tu evento
 <div class="container about-grid">
 
 <div class="about-image">
-FOTOGRAFÍA DE<br>
-JORGE HUERTAS<br>
-COMO DJ
+<img src="imagenes/2c52a7d2-d384-4324-bb90-06a3680d6b81.JPEG" alt="Jorge Huertas - Productor y DJ Profesional">
 </div>
 
 <div class="about-text">
