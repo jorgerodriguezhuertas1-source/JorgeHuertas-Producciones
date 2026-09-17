@@ -116,7 +116,6 @@ header{
     background:#080808;
 }
 
-/* CONTENEDOR DE VIDEO */
 .hero-video-wrap {
     position: absolute;
     inset: 0;
@@ -132,9 +131,6 @@ header{
     object-fit: cover;
     filter: brightness(0.6) contrast(1.05);
 }
-
-
-/* DEGRADADO DINÁMICO PARA LEER EL TEXTO PERFECTAMENTE */
 
 .hero::after{
     content:"";
@@ -166,9 +162,6 @@ header{
     max-width:750px;
 }
 
-
-/* ETIQUETA */
-
 .tag{
     display:inline-block;
     border:1px solid rgba(255,255,255,.25);
@@ -183,9 +176,6 @@ header{
     backdrop-filter:blur(10px);
 }
 
-
-/* TITULO */
-
 .hero h1{
     font-size:clamp(40px, 6vw, 72px);
     line-height:1.02;
@@ -197,9 +187,6 @@ header{
     color:rgba(255,255,255,.55);
 }
 
-
-/* DESCRIPCION */
-
 .hero p{
     font-size:17px;
     line-height:1.6;
@@ -207,9 +194,6 @@ header{
     color:#cfcfcf;
     margin-bottom:32px;
 }
-
-
-/* BOTONES */
 
 .buttons{
     display:flex;
@@ -418,27 +402,85 @@ section{
 
 
 /* =========================
-   EXPERIENCE
+   MOMENTOS REALES (TIKTOK REELS)
 ========================= */
 
-.experience{
-    text-align:center;
+.reels-section{
+    background:#080808;
 }
 
-.experience-box{
-    max-width:800px;
-    margin:auto;
+.reels-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:25px;
 }
 
-.experience-box p{
-    font-size:22px;
-    color:#aaa;
-    margin-bottom:35px;
+.reel-card{
+    background:#121212;
+    border:1px solid #222;
+    border-radius:20px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    transition:.3s;
+}
+
+.reel-card:hover{
+    border-color:#444;
+    transform:translateY(-5px);
+}
+
+.reel-video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 177.78%; /* Proporción 9:16 tipo Reel */
+    background: #000;
+}
+
+.reel-video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reel-info{
+    padding:20px;
+}
+
+.reel-info h3{
+    font-size:18px;
+    margin-bottom:6px;
+    color:#fff;
+}
+
+.reel-info p{
+    font-size:13px;
+    color:#888;
+    margin-bottom:15px;
+}
+
+.reel-btn {
+    display: inline-block;
+    background: #fff;
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: .3s;
+}
+
+.reel-btn:hover {
+    background: #25D366;
+    color: #fff;
 }
 
 
 /* =========================
-   ABOUT (NOSOTROS)
+   NOSOTROS (ABOUT)
 ========================= */
 
 .about{
@@ -571,7 +613,8 @@ footer{
 ========================= */
 
 @media(max-width:900px){
-    .about-grid{
+    .about-grid,
+    .reels-grid{
         grid-template-columns:1fr;
         gap:35px;
     }
@@ -642,6 +685,7 @@ JORGE HUERTAS
 <a href="#eventos">Eventos</a>
 <a href="#servicios">Servicios</a>
 <a href="#packs">Experiencias</a>
+<a href="#reels">Momentos</a>
 <a href="#nosotros">Nosotros</a>
 <a class="nav-btn" href="https://wa.me/51953432848?text=Hola,%20deseo%20cotizar%20mi%20evento">Cotiza tu evento</a>
 </nav>
@@ -763,13 +807,58 @@ JORGE HUERTAS
 </section>
 
 
-<!-- EXPERIENCE -->
-<section class="experience">
-<div class="container experience-box">
-<div class="section-label">04 / Calidad & Confianza</div>
-<h2 class="section-title">No hacemos solamente eventos.</h2>
-<p>Garantizamos respaldo técnico, puntualidad y un estándar corporativo impecable para que cada detalle salga perfecto.</p>
-<a class="btn btn-primary" href="https://wa.me/51953432848?text=Hola,%20deseo%20conversar%20sobre%20mi%20evento">Hablemos por WhatsApp</a>
+<!-- MOMENTOS REALES (TIKTOK) -->
+<section class="reels-section" id="reels">
+<div class="container">
+<div class="section-label">04 / Momentos Reales</div>
+<h2 class="section-title">Así se viven<br>nuestros eventos.</h2>
+<p class="section-description">Explora nuestros videos reales en TikTok y descubre la energía que llevamos a cada celebración.</p>
+
+<div class="reels-grid">
+
+    <!-- Reel 1 -->
+    <div class="reel-card">
+        <div class="reel-video-container">
+            <video autoplay muted loop playsinline>
+                <source src="imagenes/13175452_1920_1080_25fps.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="reel-info">
+            <h3>Matrimonios & Bodas</h3>
+            <p>Ambiente y producción en vivo.</p>
+            <a href="https://www.tiktok.com/@jhproducciones3" target="_blank" class="reel-btn">Ver en TikTok ↗</a>
+        </div>
+    </div>
+
+    <!-- Reel 2 -->
+    <div class="reel-card">
+        <div class="reel-video-container">
+            <video autoplay muted loop playsinline>
+                <source src="imagenes/13175452_1920_1080_25fps.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="reel-info">
+            <h3>Eventos Corporativos</h3>
+            <p>Profesionalismo y puntualidad.</p>
+            <a href="https://www.tiktok.com/@jhproducciones3" target="_blank" class="reel-btn">Ver en TikTok ↗</a>
+        </div>
+    </div>
+
+    <!-- Reel 3 -->
+    <div class="reel-card">
+        <div class="reel-video-container">
+            <video autoplay muted loop playsinline>
+                <source src="imagenes/13175452_1920_1080_25fps.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="reel-info">
+            <h3>Discotecas & Fiesta</h3>
+            <p>Control de pista y energía.</p>
+            <a href="https://www.tiktok.com/@jhproducciones3" target="_blank" class="reel-btn">Ver en TikTok ↗</a>
+        </div>
+    </div>
+
+</div>
 </div>
 </section>
 
@@ -809,8 +898,8 @@ JORGE HUERTAS
 <div>Entretenimiento & Producción de Eventos Corporativos y Sociales</div>
 </div>
 <div class="footer-social">
+<a href="https://www.tiktok.com/@jhproducciones3" target="_blank">TikTok (@jhproducciones3)</a>
 <a href="#">Instagram</a>
-<a href="#">TikTok</a>
 <a href="#">Facebook</a>
 </div>
 </div>
