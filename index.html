@@ -266,62 +266,13 @@ section{
 
 
 /* =========================
-   EVENTS
-========================= */
-
-.events{
-    background:#101010;
-}
-
-.event-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-}
-
-.event-card{
-    min-height:340px;
-    padding:45px;
-    border:1px solid #222;
-    border-radius:20px;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    background:linear-gradient(145deg,#151515,#0a0a0a);
-    transition:.3s;
-}
-
-.event-card:hover{
-    transform:translateY(-5px);
-    border-color:#444;
-}
-
-.event-number{
-    font-size:13px;
-    color:#666;
-    margin-bottom:auto;
-}
-
-.event-card h3{
-    font-size:28px;
-    margin-bottom:12px;
-}
-
-.event-card p{
-    color:#999;
-    font-size:15px;
-}
-
-
-/* =========================
-   SERVICIOS INTERACTIVOS (TABS / SLIDE)
+   SERVICIOS INTERACTIVOS (TABS)
 ========================= */
 
 .services-interactive{
     background:#080808;
 }
 
-/* Barra de pestañas */
 .service-tabs {
     display: flex;
     gap: 10px;
@@ -354,7 +305,6 @@ section{
     border-color: #fff;
 }
 
-/* Contenido de la pestaña activa */
 .service-display-box {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
@@ -410,7 +360,7 @@ section{
 
 
 /* =========================
-   PACKS
+   PACKS (EXPERIENCIAS)
 ========================= */
 
 .packs{
@@ -640,29 +590,34 @@ footer{
 
 
 /* =========================
-   WHATSAPP FLOTANTE
+   WHATSAPP FLOTANTE CON ICONO OFICIAL
 ========================= */
 
 .whatsapp{
     position:fixed;
-    right:20px;
-    bottom:20px;
+    right:22px;
+    bottom:22px;
     z-index:9999;
     background:#25D366;
     color:#fff;
-    width:56px;
-    height:56px;
+    width:60px;
+    height:60px;
     border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:26px;
-    box-shadow:0 6px 20px rgba(37,211,102,.4);
+    box-shadow:0 8px 25px rgba(37,211,102,.45);
     transition:.3s;
 }
 
+.whatsapp svg {
+    width: 34px;
+    height: 34px;
+    fill: #ffffff;
+}
+
 .whatsapp:hover{
-    transform:scale(1.08);
+    transform:scale(1.1);
 }
 
 
@@ -708,14 +663,8 @@ footer{
         font-size:15px;
     }
 
-    .event-grid,
     .reels-grid{
         grid-template-columns:1fr;
-    }
-
-    .event-card{
-        min-height:260px;
-        padding:28px;
     }
 
     .footer-content{
@@ -740,7 +689,6 @@ JORGE HUERTAS
 <span>PRODUCCIONES</span>
 </a>
 <nav class="menu">
-<a href="#eventos">Eventos</a>
 <a href="#servicios">Servicios</a>
 <a href="#packs">Experiencias</a>
 <a href="#reels">Momentos</a>
@@ -773,32 +721,10 @@ JORGE HUERTAS
 </section>
 
 
-<!-- EVENTOS -->
-<section class="events" id="eventos">
-<div class="container">
-<div class="section-label">01 / Eventos</div>
-<h2 class="section-title">Un evento.<br>Una experiencia.</h2>
-<p class="section-description">Diseñamos soluciones de entretenimiento y producción adaptadas al nivel de exclusividad que tu celebración o empresa exige.</p>
-<div class="event-grid">
-<div class="event-card">
-<div class="event-number">01</div>
-<h3>Eventos Corporativos</h3>
-<p>Convenciones, aniversarios empresariales, lanzamientos de marca, integraciones y celebraciones de fin de año con máxima elegancia y puntualidad.</p>
-</div>
-<div class="event-card">
-<div class="event-number">02</div>
-<h3>Matrimonios & Sociales</h3>
-<p>Bodas de ensueño, celebraciones privadas y grandes momentos diseñados para que los novios e invitados disfruten sin preocupaciones.</p>
-</div>
-</div>
-</div>
-</section>
-
-
 <!-- SERVICIOS INTERACTIVOS (TABS) -->
 <section class="services-interactive" id="servicios">
 <div class="container">
-<div class="section-label">02 / Servicios</div>
+<div class="section-label">01 / Servicios</div>
 <h2 class="section-title">Todo lo que tu evento necesita.</h2>
 <p class="section-description">Haz clic en cada servicio para explorar nuestra propuesta especializada.</p>
 
@@ -873,7 +799,7 @@ JORGE HUERTAS
 <!-- PACKS -->
 <section class="packs" id="packs">
 <div class="container">
-<div class="section-label">03 / Experiencias</div>
+<div class="section-label">02 / Experiencias</div>
 <h2 class="section-title">Creamos el paquete<br>para tu evento.</h2>
 <p class="section-description">Propuestas referenciales diseñadas para corporativos y matrimonios que buscan excelencia técnica y artística.</p>
 <div class="pack-grid">
@@ -925,7 +851,7 @@ JORGE HUERTAS
 <!-- MOMENTOS REALES (TIKTOK) -->
 <section class="reels-section" id="reels">
 <div class="container">
-<div class="section-label">04 / Momentos Reales</div>
+<div class="section-label">03 / Momentos Reales</div>
 <h2 class="section-title">Así se viven<br>nuestros eventos.</h2>
 <p class="section-description">Explora nuestros videos reales en TikTok y descubre la energía que llevamos a cada celebración.</p>
 
@@ -974,7 +900,7 @@ JORGE HUERTAS
 <img src="imagenes/1c693651-04ef-44da-93c1-b44a36c186d8.JPEG" alt="Jorge Huertas Producciones - Eventos Corporativos y Matrimonios">
 </div>
 <div class="about-text">
-<div class="section-label">05 / Nosotros</div>
+<div class="section-label">04 / Nosotros</div>
 <h2 class="section-title">Jorge Huertas<br>Producciones</h2>
 <p>Somos una empresa especializada en el entretenimiento y producción integral de eventos sociales y corporativos de alto nivel.</p>
 <p>Combinamos tecnología de punta, talento artístico, puntualidad y una atención personalizada rigurosa para superar las expectativas de cada cliente.</p>
@@ -1010,9 +936,11 @@ JORGE HUERTAS
 </footer>
 
 
-<!-- WHATSAPP -->
+<!-- WHATSAPP FLOTANTE CON ICONO OFICIAL -->
 <a class="whatsapp" href="https://wa.me/51953432848?text=Hola,%20deseo%20información%20sobre%20sus%20servicios" aria-label="WhatsApp">
-💬
+    <svg viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.124-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
 </a>
 
 
